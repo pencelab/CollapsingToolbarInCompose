@@ -14,10 +14,10 @@
 ## Branches
 
 - `master`: Initial code.
-- :construction: `column_version`: Resulting code using a `Column`.
+- `column_version`: Resulting code using a `Column`.
 - :construction: `lazycolumn_version`: Resulting code using a `LazyColumn`.
 
-💬 `column_version` *and* `lazycolumn_version` *branches will be available along with their respective articles soon. **Stay tuned! It won't take longer than a week between publications.***
+💬 `lazycolumn_version` *branch will be available along with its articles soon. **Stay tuned! It won't take longer than a week between publications.***
 
 ## Description
 
