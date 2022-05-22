@@ -15,9 +15,7 @@
 
 - `master`: Initial code.
 - `column_version`: Resulting code using a `Column`.
-- :construction: `lazycolumn_version`: Resulting code using a `LazyColumn`.
-
-💬 `lazycolumn_version` *branch will be available along with its articles soon. **Stay tuned! It won't take longer than a week between publications.***
+- `lazycolumn_version`: Resulting code using a `LazyColumn`.
 
 ## Description
 
