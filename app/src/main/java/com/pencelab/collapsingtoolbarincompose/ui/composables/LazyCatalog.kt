@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -36,12 +37,17 @@ fun LazyCatalog(
     listState: LazyListState = rememberLazyListState(),
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
+
+    val chunkedList = remember(animals, columns) {
+        animals.chunked(columns)
+    }
+
     LazyColumn(
         state = listState,
         contentPadding = contentPadding,
         modifier = modifier
     ) {
-        items(animals.chunked(columns)) { chunk ->
+        items(chunkedList) { chunk ->
             Row (
                 modifier = Modifier
                     .fillMaxWidth()
