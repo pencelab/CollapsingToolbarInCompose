@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,6 +29,13 @@ fun EagerCatalogPreview(
     }
 }
 
+/**-------------------------------------------------------------------------------------- *
+ *                                  W  A  R  N  I  N  G                                   *
+ * -------------------------------------------------------------------------------------- *
+ * This composable function is only for illustration purpose.                             *
+ * DO NOT attempt using a Column component whose content is built dynamically.            *
+ * This is highly inefficient and you should prefer using a LazyColumn component instead. *
+ * -------------------------------------------------------------------------------------- */
 @Composable
 fun EagerCatalog(
     animals: List<Animal>,
@@ -36,6 +44,11 @@ fun EagerCatalog(
     scrollState: ScrollState = rememberScrollState(),
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
+
+    val chunkedList = remember(animals, columns) {
+        animals.chunked(columns)
+    }
+
     Column(
         modifier = modifier.verticalScroll(scrollState)
     ) {
@@ -45,7 +58,7 @@ fun EagerCatalog(
                 .height(contentPadding.calculateTopPadding())
         )
 
-        animals.chunked(columns).forEach { chunk ->
+        chunkedList.forEach { chunk ->
             Row (
                 modifier = Modifier
                     .fillMaxWidth()

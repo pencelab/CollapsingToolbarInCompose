@@ -225,7 +225,7 @@ private fun CollapsingToolbarLayout(
         modifier = modifier,
         content = content
     ) { measurables, constraints ->
-        check(measurables.size == 5) // [0-2]: Logo Images | [3]: Buttons
+        check(measurables.size == 5) // [0]: Country Map | [1-3]: Logo Images | [4]: Buttons
 
         val placeables = measurables.map {
             it.measure(constraints)
